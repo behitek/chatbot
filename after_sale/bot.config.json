@@ -1,0 +1,152 @@
+{
+  "parameters": {
+    "p.botName": "T-chai bot",
+    "p.companyName": "công ty cổ phần dược phẩm Thái Minh",
+    "p.sample.customers": {
+      "KH01": {
+        "logTime": "29/11/2019",
+        "ask": "how_to_use",
+        "product": "P01"
+      },
+      "KH02": {
+        "logTime": "29/11/2019",
+        "ask": "store_location",
+        "product": "P01"
+      },
+      "KH03": {
+        "logTime": "29/11/2019",
+        "ask": "product_price",
+        "product": "P02"
+      },
+      "KH04": {
+        "logTime": "29/11/2019",
+        "ask": "how_to_use",
+        "product": "P02"
+      }
+    },
+    "p.productName": "",
+    "p.productUsage": "",
+    "p.logTime": "",
+    "botCanNotSolve": 7
+  },
+  "products": {
+    "P01": {
+      "name": "Tràng phục linh",
+      "use": "hai"
+    },
+    "P02": {
+      "name": "Xoang bách phục",
+      "use": "hai"
+    }
+  },
+  "regexPara": "{p\\.[^}]+}",
+  "story": [
+    {
+      "id": 0,
+      "type": "message",
+      "comment": "Mở đầu",
+      "messages": [
+        "Chào quý khách, em là {p.botName} của {p.companyName}. Vào {p.logTime} quý khách đã hỏi về sản phẩm {p.productName}, không biết quý khách đã mua và sử dụng chưa ạ"
+      ],
+      "next": 1
+    },
+    {
+      "id": 1,
+      "type": "check",
+      "paras": "",
+      "comment": "Khách trả lời câu hỏi mở đầu",
+      "cases": {
+        "notUse": {
+          "regex": [
+            "\\b(?:chưa|không).*mua\\b",
+            "\\bmua.+khác\\b",
+            "\\bkhông (nhớ|cần|biết|quan tâm|có nhu cầu)\\b"
+          ],
+          "next": 2
+        },
+        "hasBuy": {
+          "regex": [
+            "\\brồi\\b",
+            "\\b(?:vừa|đã|mới) mua\\b",
+            "\\bmua hôm\\b"
+          ],
+          "next": 3
+        },
+        "hasQuestion": {
+          "regex": [
+            "\\b(?:tác dụng|hiệu quả|đỡ|mấy)\\b",
+            "\\bbao (?:nhiêu|lâu)\\b",
+            "\\b(uống thêm|bổ sung)\\b"
+          ],
+          "next": 4
+        },
+        "dosage": {
+          "regex": [
+            "\\b(?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười) viên\\b"
+          ],
+          "next": 5
+        },
+        "xx": {
+          "regex": [
+            "\\bchưa (?:uống|dùng|sài|sử dụng)\\b"
+          ],
+          "next": 6
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "message",
+      "comment": "Trả lời cho TH khách không mua",
+      "messages": [
+        "Dạ, quý khách có thể cân nhắc việc sử dụng sản phẩm {p.productName}. Trong trường hợp quý khách cần tư vấn, hãy gọi lại tổng đài vào giờ hành chính từ 8 - 17h các ngày trong tuần. Chúc quý khách một ngày tốt lành"
+      ],
+      "next": -1
+    },
+    {
+      "id": 3,
+      "type": "message",
+      "comment": "Trả lời cho TH khách báo đã mua",
+      "messages": [
+        "Dạ, không biết quý khách đang dùng với liều dùng như nào ạ?"
+      ],
+      "next": 1
+    },
+    {
+      "id": 4,
+      "type": "message",
+      "comment": "Trả lời TH khách hỏi",
+      "messages": [
+        "Để trả lời cho thắc mắc của quý khách, ngay sau đây bên em sẽ nối máy với nhân viên hỗ trợ để tư vấn trực tiếp cho quý khách"
+      ],
+      "next": -1
+    },
+    {
+      "id": 5,
+      "type": "message",
+      "comment": "Kiểm tra liều dùng",
+      "messages": [
+        "{p.checkDosage}"
+      ],
+      "next": -1
+    },
+    {
+      "id": 6,
+      "type": "message",
+      "comment": "TH khách chưa dùng",
+      "messages": [
+        "Dạ, quý khách sắp xếp uống sớm để cải thiện sức khỏe. Khi cần tư vấn, hãy gọi lại tổng đài vào giờ hành chính từ 8 - 17h các ngày trong tuần. Chúc quý khách một ngày tốt lành"
+      ],
+      "next": -1
+    },
+    {
+      "id": 7,
+      "type": "message",
+      "comment": "Bot không thể xử lý",
+      "messages": [
+        "Để hỗ trợ anh chị tốt hơn, sau đây em sẽ nối máy với nhân viên để giúp đỡ quý khách ạ."
+      ],
+      "next": -1
+    }
+  ]
+}

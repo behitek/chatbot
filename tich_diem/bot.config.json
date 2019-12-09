@@ -1,0 +1,106 @@
+{
+  "parameters": {
+    "p.botName": "T-chai bot",
+    "p.companyName": "công ty cổ phần dược phẩm Thái Minh",
+    "p.sample.customers": {
+      "KH01": {
+        "logTime": "29/11/2019",
+        "name": "Nguyễn Văn Hiếu",
+        "gender": "anh",
+        "product": "P01"
+      },
+      "KH02": {
+        "logTime": "29/11/2019",
+        "name": "Nguyễn Văn Nam",
+        "gender": "anh",
+        "product": "P01"
+      },
+      "KH03": {
+        "logTime": "29/11/2019",
+        "name": "Bùi Thị Nga",
+        "gender": "chị",
+        "product": "P02"
+      },
+      "KH04": {
+        "logTime": "29/11/2019",
+        "name": "Đặng Thị Trâm",
+        "gender": "chị",
+        "product": "P02"
+      }
+    },
+    "p.productName": "",
+    "p.customerName": "",
+    "botCanNotSolve": 4
+  },
+  "products": {
+    "P01": {
+      "name": "Tràng phục linh",
+      "use": "hai"
+    },
+    "P02": {
+      "name": "Xoang bách phục",
+      "use": "hai"
+    }
+  },
+  "regexPara": "{p\\.[^}]+}",
+  "story": [
+    {
+      "id": 0,
+      "type": "message",
+      "comment": "Mở đầu",
+      "messages": [
+        "Em chào {p.gender} {p.customerName}, em là {p.botName} của {p.companyName}. Cách đây một tuần {p.gender} có mua sản phẩm {p.productName}. Nhưng em chưa thấy {p.gender} tích điểm cho đơn hàng này. {p.gender} có biết về chương trình tích 6 điểm tặng 1 hộp của sản phẩm {p.productName} không ạ"
+      ],
+      "next": 1
+    },
+    {
+      "id": 1,
+      "type": "check",
+      "paras": "",
+      "comment": "Khách trả lời câu hỏi mở đầu",
+      "cases": {
+        "know": {
+          "regex": [
+            "\\b(?:không|chưa)\\b",
+            "\\btích.*(như nào|ra sao|thế nào)\\b",
+            "\\bgiúp\\b"
+          ],
+          "next": 2
+        },
+        "notKnow": {
+          "regex": [
+            "\\b.*\\b",
+          ],
+          "next": 3
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "message",
+      "comment": "Trả lời cho TH khách không biết tích điểm",
+      "messages": [
+        "Vâng ạ, để em hướng dẫn giúp {p.gender} {p.customerName}. Khi cẩm vỏ hộp sản phẩm X sẽ thấy 1 tem tích điểm trên mặt hộp, mình sẽ cạo lấy mã số ở ô có phủ bạc, sau đó mình sẽ lấy điện thoại soạn tin nhắn theo cú pháp TMP dấu cách mã số và gửi đến số 8079. Sau khi tích điểm thành công hệ thống sẽ có tin nhắn báo về số điểm đã tích được. Trong lúc nhắn tin có khó khăn gì m ìnhvui lòng gọi lại tổng đài vào giờ hành chính từ 8 - 17h các ngày trong tuần để được hỗ trợ ạ. Chúc {p.gender} {p.customerName} 1 ngày tốt lành!"
+      ],
+      "next": -1
+    },
+    {
+      "id": 3,
+      "type": "message",
+      "comment": "Trả lời cho TH khách chưa tích điểm",
+      "messages": [
+        "Vâng ạ, thế {p.gender} nhớ cào tem tích điểm để tránh quên và không mất quyền lợi của mình nhé! Em chúc {p.gender} một ngày tốt lành"
+      ],
+      "next": -1
+    },
+    {
+      "id": 4,
+      "type": "message",
+      "comment": "Bot không thể xử lý",
+      "messages": [
+        "Để hỗ trợ anh chị tốt hơn, sau đây em sẽ nối máy với nhân viên để giúp đỡ quý khách ạ."
+      ],
+      "next": -1
+    }
+  ]
+}

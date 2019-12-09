@@ -1,0 +1,133 @@
+{
+  "parameters": {
+    "p.botName": "T-chai bot",
+    "p.companyName": "công ty cổ phần dược phẩm Thái Minh",
+    "p.sample.customers": {
+      "KH01": {"logTime":  "17:25:00 29/11/2019", "name":  ""},
+      "KH02": {"logTime":  "17:25:00 29/11/2019", "name":  ""},
+      "KH03": {"logTime":  "17:25:00 29/11/2019", "name":  ""},
+      "KH04": {"logTime":  "17:25:00 29/11/2019", "name":  ""}
+    },
+    "p.missCallTime": "",
+    "p.reminderTime": "",
+    "botCanNotSolve": 8
+  },
+  "regexPara": "{p\\.[^}]+}",
+  "story": [
+    {
+      "id": 0,
+      "type": "message",
+      "comment": "Mở đầu",
+      "messages": [
+        "Chào quý khách, em là {p.botName} của {p.companyName}. Em thấy quý khách có gọi nhỡ lên tổng đài lúc {p.missCallTime}. Không biết quý khách cần hỗ trợ thông tin gì ạ?"
+      ],
+      "next": 1
+    },
+    {
+      "id": 1,
+      "type": "check",
+      "paras": "",
+      "comment": "Khách trả lời, check mon muốn của khách",
+      "cases": {
+        "userReject": {
+          "regex": [
+            "\\bkhông (nhớ|cần|biết|quan tâm|có nhu cầu)\\b"
+          ],
+          "next": 2
+        },
+        "userNotCall": {
+          "regex": [
+            "\\b(?:người nhà|mẹ|bố|ba|má|chị|vợ|chồng).*(?:gọi)\\b",
+            "\\b(?:không phải) (?:mình|tôi|anh|chị) (?:gọi)\\b",
+            "\\b(?:mình|tôi|anh|chị) (?:không gọi)\\b"
+          ],
+          "next": 3
+        },
+        "userBusy": {
+          "regex": [
+            "\\b(bận|ngoài đường|ồn|ngủ|họp|chợ|lái xe|đi đường)\\b"
+          ],
+          "next": 4
+        },
+        "userAsk": {
+          "regex": [
+            "\\b(chỗ nào|ở đâu|bao nhiêu|muốn mua|cách dùng|như nào|như thế nào|ra sao)\\b",
+            "\\b(mua|uống|hỏi)\\b"
+          ],
+          "next": 5
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "message",
+      "comment": "Trả lời cho TH khách từ chối",
+      "messages": [
+        "Dạ, nếu quý khách không cần tư vấn thì em xin phép. Lúc nào có nhu cầu cần được tư vấn quý khách vui lòng gọi lại tổng đài vào giờ hành chính từ 8 - 17h các ngày trong tuần ạ. Chúc quý khách 1 ngày tốt lành!"
+      ],
+      "next": -1
+    },
+    {
+      "id": 3,
+      "type": "message",
+      "comment": "Trả lời cho TH người nhà gọi",
+      "messages": [
+        "Dạ, vậy quý khách có thể nhắn với người nhà vui lòng gọi lại tổng đài vào giờ hành chính từ 8 - 17h các ngày trong tuần ạ. Chúc quý khách 1 ngày tốt lành!"
+      ],
+      "next": -1
+    },
+    {
+      "id": 4,
+      "type": "message",
+      "comment": "Trả lời TH khách đang bận",
+      "messages": [
+        "Nếu quý khách đang bận, vậy em có thể gọi lại sau ạ. Không biết khi nào em có thể gọi lại cho quý khách?"
+      ],
+      "next": 6
+    },
+    {
+      "id": 5,
+      "type": "message",
+      "comment": "Trả lời TH khách có câu hỏi",
+      "messages": [
+        "Bên em đã ghi nhận thắc mắc của quý khách. Ngay sau đây bên em sẽ nối máy cho nhân viên để giải đáp cho quý khách."
+      ],
+      "next": -1
+    },
+    {
+      "id": 6,
+      "type": "check",
+      "paras": "p.reminderTime",
+      "comment": "Khách trả lời thời gian sẽ gọi lại",
+      "cases": {
+        "respondTime": {
+          "regex": [
+            "(?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười| )+(?:giờ|rưỡi) (?:sáng|chiều|ngày|hôm| )+(?:nay|mai)",
+            "(?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười| )+giờ (?:mười|hai|ba|bốn|năm|mươi| )+(?: phút )?(?:sáng|chiều|ngày|hôm| )+(?:nay|mai)",
+            "(?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười| )+(?:giờ|rưỡi)",
+            "(?:một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười| )+giờ (?:mười|hai|ba|bốn|năm|mươi| )+(?: phút )?"
+          ],
+          "next": 7
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": "message",
+      "comment": "Confirm giờ gọi lại",
+      "messages": [
+        "Vậy bên em sẽ gọi lại quý khách vào lúc {p.reminderTime}, quý khách nhớ chú ý nghe máy ạ."
+      ],
+      "next": -1
+    },
+    {
+      "id": 8,
+      "type": "message",
+      "comment": "Bot không thể xử lý",
+      "messages": [
+        "Để hỗ trợ anh chị tốt hơn, sau đây em sẽ nối máy với nhân viên để giúp đỡ quý khách ạ."
+      ],
+      "next": -1
+    }
+  ]
+}
