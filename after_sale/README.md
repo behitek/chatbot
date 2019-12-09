@@ -1,66 +1,84 @@
-## Tình huống 1 :
+## Tình huống 1
+> Robot:​ Em chào anh/ chị A, em là T-chai robot tư vấn của công ty Dược Phẩm Thái Minh.
+Cách đây 3 ngày em có thấy anh/ chị A có gọi hỏi về sản phẩm X không biết anh/ chị đã
+dùng sản phẩm X chưa?/ anh chị A có hỏi điểm bán sản phẩm X không biết anh/ chị đã mua
+được chưa?
 
-> Robot:​ Chào quý khách,​ em là T-chai robot tư vấn của công ty Dược Phẩm Thái Minh. Em
-thấy quý khách có gọi nhỡ tới tổng đài X tư vấn về bệnh rụng tóc, đại tràng lúc (ngày giờ
-dựa vào PG). Không biết quý khách cần hỏi thông tin cụ thể gì về sức khỏe?
+> KH:​ Chưa dùng/ chưa mua/ không cần nữa/ mua sản phẩm khác rồi
 
-> KH:​ Tói không nhớ/ không cần/ không biết ai gọi/ quên rồi
+> Robot: ​ Dạ, anh/ chị có thể cân nhắc để sử dụng sản phẩm X. Lúc nào có nhu cầu cần được tư
+vấn anh/ chị A vui lòng gọi lại tổng đài X vào giờ hành chính từ 8 - 17h các ngày trong tuần
+ạ. Chúc anh/ chị A 1 ngày tốt lành!
 
-> Robot: ​ Dạ, nếu quý khách không cần tư vấn thì em xin phép. Lúc nào có nhu cầu cần được tư
-vấn quý khách vui lòng gọi lại tổng đài X vào giờ hành chính từ 8 - 17h các ngày trong tuần
-ạ. Chúc quý khách 1 ngày tốt lành!
+## Tình huống 2
+> Robot:​ Em chào anh/ chị A, em là T-chai robot tư vấn của công ty Dược Phẩm Thái Minh.
+Cách đây 3 ngày em có thấy anh/ chị A có gọi hỏi về sản phẩm X không biết anh/ chị đã
+dùng sản phẩm X chưa?/ anh chị A có hỏi điểm bán sản phẩm X không biết anh/ chị đã mua
+được chưa?
 
+> KH:​ Mua rồi
 
-## Tình huống 2:
+> Robot: ​ Dạ, không biết anh chị đã bắt đầu uống sản phẩm X chưa và mình uống liều thế nào
+ạ?
 
-> Robot:​ Chào quý khách,​ em là T-chai robot tư vấn của công ty Dược Phẩm Thái Minh. Em
-thấy quý khách có gọi nhỡ tới tổng đài X tư vấn về bệnh rụng tóc, đại tràng lúc (ngày giờ
-dựa vào PG). Không biết quý khách cần hỏi thông tin cụ thể gì về sức khỏe?
+> KH: Chưa uống
 
-> KH:​ Người nhà gọi/ bố - mẹ gọi/ vợ - chồng gọi
+> Robot:​ Vậy anh/ chị A sắp xếp uống sớm để bệnh cải thiện sớm nhé. Để được tư vấn thêm
+anh/ chị A vui lòng gọi lại tổng đài X vào giờ hành chính từ 8 - 17h các ngày trong tuần ạ.
+Chúc anh/ chị A 1 ngày tốt lành!
 
-> Robot: ​ Dạ, vậy quý khách có thể nhắn với người nhà vui lòng gọi lại tổng đài X vào giờ hành
-chính từ 8 - 17h các ngày trong tuần ạ. Chúc quý khách 1 ngày tốt lành!
+## Tình huống 3
+> Robot:​ Em chào anh/ chị A, em là T-chai robot tư vấn của công ty Dược Phẩm Thái Minh.
+Cách đây 3 ngày em có thấy anh/ chị A có gọi hỏi về sản phẩm X không biết anh/ chị đã
+dùng sản phẩm X chưa?/ anh chị A có hỏi điểm bán sản phẩm X không biết anh/ chị đã mua
+được chưa?
 
-## Tình huống 3:
-> Robot:​ Chào quý khách,​ em là T-chai robot tư vấn của công ty Dược Phẩm Thái Minh. Em
-thấy quý khách có gọi nhỡ tới tổng đài X tư vấn về bệnh rụng tóc, đại tràng lúc (ngày giờ
-dựa vào PG). Không biết quý khách cần hỏi thông tin cụ thể gì về sức khỏe?
+> KH:​ Mua rồi
 
-> KH:​ Bận/ đi đường/ ngủ/ họp/ đi chợ/ lái xe
+> Robot: ​ Dạ, không biết anh chị đã bắt đầu uống sản phẩm X chưa và mình uống liều thế nào
+ạ?
+> KH: 4 ​ viên 1 ngày/ 6 viên 1 ngày (phụ thuộc từng sản phẩm)
 
-> Robot: ​ Dạ, vậy quý khách rảnh vào lúc nào em sẽ gọi lại sau ạ?KH:​ 1 giờ/ 2 giờ...
+> Robot:​ Anh/ chị A đã uống đúng liều rồi, mình nhớ uống đều đặn - đủ liệu trình để theo dõi
+hiệu quả nhé. Trong quá trình sử dụng có điều gì không rõ hoặc cần tư vấn thêm anh/ chị A
+vui lòng gọi lại tổng đài X vào giờ hành chính từ 8 - 17h các ngày trong tuần ạ. Chúc anh/ chị
+A 1 ngày tốt lành!
 
-> Robot: ​ Em đã ghi nhận thông tin, đến (..) giờ em sẽ gọi lại quý khách nhớ chú ý nghe điện
-thoại nhé. Chúc quý khách 1 ngày tốt lành!
+## Tình huống 4
+> Robot:​ Em chào anh/ chị A, em là T-chai robot tư vấn của công ty Dược Phẩm Thái Minh.
+Cách đây 3 ngày em có thấy anh/ chị A có gọi hỏi về sản phẩm X không biết anh/ chị đã
+dùng sản phẩm X chưa?/ anh chị A có hỏi điểm bán sản phẩm X không biết anh/ chị đã mua
+được chưa?
 
-## Tình huống 4:
-> Robot:​ Chào quý khách,​ em là T-chai robot tư vấn của công ty Dược Phẩm Thái Minh. Em
-thấy quý khách có gọi nhỡ tới tổng đài X tư vấn về bệnh rụng tóc, đại tràng lúc (ngày giờ
-dựa vào PG). Không biết quý khách cần hỏi thông tin cụ thể gì về sức khỏe?
-KH có nhu cầu
-1. MHA/ TPL mua ở đâu? Tôi muốn mua MHA/ TPL ? Ở tỉnh A chỗ nào có bán? Tôi
-muốn thuốc rụng tóc/ hói đầu/ rối loạn tiêu hóa/ đau bụng/ đi ngoài/ đại tràng/ viêm
-đại tràng/ đại tràng co thắt đài quảng cáo? Tôi bị rụng tóc/ hói đầu/ đau bụng... mua
-thuốc ở đâu?
+> KH:​ Mua rồi
 
-2. MHA/ TPL bao nhiêu tiền? giá bao nhiêu? Thuốc rụng tóc/ đại tràng có đắt không?
-bao nhiêu 1 hộp? 1 liệu trình uống hết bao nhiêu tiền? 1 tháng hết bao tiền?
-3. Liều uống thế nào? Uống bao nhiêu viên/ ngày? Uống mấy viên/ ngày? 1 hộp uống
-được bao lâu?
-4. Bao giờ có tác dụng? Liệu trình? Uống bao lâu? Uống mấy hộp khỏi? Có nhiều người
-uống khỏi không?
-5. Uống TPL đau bụng hơn có uống nữa không? Uống MHA rụng tóc nhiều hơn hơn?
-6. Nhắn tin không được? Tích điểm lâu không có quà? Mua 6h không được nhận quà?
-Chưa nhận được quà? Mua 6h nhận quà luôn?
-7. TDP? THA - tiểu đường - tim mạch - tăng men gan uống được không? Có thai - cho
-con bú uống được không? Bao nhiêu tuổi uống được?
-8. Công ty sản xuất? Xuất xứ? Hàng giả? Sản xuất lâu chưa? Thuốc hay TPCN?
+> Robot: ​ Dạ, không biết anh chị đã bắt đầu uống sản phẩm X chưa và mình uống liều thế nào
+ạ?
 
-> Robot: ​ Dạ, em đã nhận được thông tin. Em sẽ chuyển chuyên gia gọi điện tư vấn trực tiếp.
-Không biết có thể gọi lại cho quý khách vào lúc nào thì thuận tiện ạ?
+> KH: 1 ​ viên 1 ngày/ 2 viên 1 ngày (phụ thuộc từng sản phẩm)
 
-> KH:​ 1 giờ/ 2 giờ...
+> Robot:​ Em thấy anh/ chị A đang uống sai liều rồi, mình nên uống 4 viên/ ngày (phụ thuộc
+từng sản phẩm) để đạt hiệu quả tốt nhất ạ. Anh/ chị A nhớ uống đúng liều - đều đặn - đủ liệu
+trình để theo dõi hiệu quả nhé. Trong quá trình sử dụng anh / chị A điều gì không rõ hoặc cần
+tư vấn thêm anh/ chị A vui lòng gọi lại tổng đài X vào giờ hành chính từ 8 - 17h các ngày
+trong tuần ạ. Chúc anh/ chị A 1 ngày tốt lành!
+Tình huống 5Robot:​ Em chào anh/ chị A, em là T-chai robot tư vấn của công ty Dược Phẩm Thái Minh.
+Cách đây 3 ngày em có thấy anh/ chị A có gọi hỏi về sản phẩm X không biết anh/ chị đã
+dùng sản phẩm X chưa?/ anh chị A có hỏi điểm bán sản phẩm X không biết anh/ chị đã mua
+được chưa?
 
-> Robot: ​ Đến (..) giờ em sẽ gọi lại quý khách nhớ chú ý nghe điện thoại nhé. Chúc quý khách 1
+> KH:​ Mua rồi
+
+> Robot: ​ Dạ, không biết anh chị đã bắt đầu uống sản phẩm X chưa và mình uống liều thế nào
+ạ?
+
+> KH: 4 ​ viên 1 ngày/ 6 viên 1 ngày (phụ thuộc từng sản phẩm). Có gây TDP không?/ Bao lâu
+có tác dụng? Có cần uống thêm thuốc khác?
+
+> Robot:​ ​ Robot: ​ Em đã nhận được thông tin. Em sẽ chuyển chuyên gia tư vấn thêm giúp anh/
+chị A. Không biết có thể gọi lại cho quý khách vào lúc nào thì thuận tiện ạ?
+
+> KH:​ Bây giờ/ 1 giờ/ 2 giờ...
+
+> Robot: ​ Đến (..) giờ em sẽ gọi lại quý khách nhớ chú ý nghe điện thoại nhé. Chúc anh chị A 1
 ngày tốt lành!
