@@ -16,7 +16,7 @@ def get_random_item(messages):
 
 
 class Bot:
-    def __init__(self, config_file='bot.config.json'):
+    def __init__(self, config_file=os.path.join(dir_path, 'bot.config.json')):
         configurations = json.load(open(config_file, encoding='utf8'))
         self.story = configurations.get('story')
         self.parameters = configurations.get('parameters')
@@ -39,9 +39,12 @@ class Bot:
             mess = get_random_item(self.story[self.cur_node].get('messages'))
             if mess == "{p.checkDosage}":
                 self.cur_node = -1
-                return self.check_dosage(message)
+                return self.check_dosage(message) + END_SIGNAL
             self.cur_node = self.story[self.cur_node]["next"]
-            return self.fill_parameters(mess)
+            res = self.fill_parameters(mess)
+            if self.cur_node == -1:
+                res += END_SIGNAL
+            return res
         else:
             for case in self.story[self.cur_node].get('cases'):
                 case = self.story[self.cur_node].get('cases').get(case)
@@ -51,7 +54,10 @@ class Bot:
                             self.parameters[self.story[self.cur_node].get('paras')] = re.findall(re_str, message,
                                                                                                  re.IGNORECASE)[0]
                         self.cur_node = case.get('next')
-                        return self.interactive(customer_id, message)
+                        res = self.interactive(customer_id, message)
+                        if self.cur_node == -1:
+                            res += END_SIGNAL
+                        return res
             # TH bot không thể xác định case
             self.cur_node = self.parameters['botCanNotSolve']
             return self.interactive(customer_id)

@@ -52,6 +52,7 @@
         "userAsk": {
           "regex": [
             "\\b(chỗ nào|ở đâu|bao nhiêu|muốn mua|cách dùng|như nào|như thế nào|ra sao)\\b",
+            "\\b(tác dụng|hiệu quả|đỡ)\\b",
             "\\b(mua|uống|hỏi)\\b"
           ],
           "next": 5

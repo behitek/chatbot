@@ -17,7 +17,7 @@ def get_random_item(messages):
 
 
 class Bot:
-    def __init__(self, config_file='bot.config.json'):
+    def __init__(self, config_file=os.path.join(dir_path, 'bot.config.json')):
         configurations = json.load(open(config_file, encoding='utf8'))
         self.story = configurations.get('story')
         self.parameters = configurations.get('parameters')
@@ -56,7 +56,10 @@ class Bot:
         for para in paras:
             if para[1:-1] in self.parameters:
                 message = re.sub(para, self.parameters.get(para[1:-1]), message)
-        return re.sub("\\s+", " ", message).strip()
+        res = re.sub("\\s+", " ", message).strip()
+        if self.cur_node == -1:
+            res += END_SIGNAL
+        return res
 
 
 if __name__ == '__main__':
